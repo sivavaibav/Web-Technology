@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIPC GST Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #natureOfConsultancy {
+            display: flex;
+            flex-direction: row;
+        }
+
+        table {
+            font-size: 10px;
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>IIPC GST Calculator</h1>
+        <form id="gstForm">
+            <label for="industry">Industry Name:</label>
+            <input type="text" id="industry" name="industry" required>
+
+            <label for="amount">Amount (INR):</label>
+            <input type="text" id="amount" name="amount" required>
+
+            <label for="employees">Number of Faculty:</label>
+            <input type="number" id="employees" name="employees" min="0" required>
+
+            <label for="taxType">Tax Type:</label>
+            <div id="taxType">
+                <label for="service1"><input type="radio" id="service1" name="service" value="1" required>Tax 1 (10%
+                    GST)</label>
+                <label for="service2"><input type="radio" id="service2" name="service" value="2" required>Tax 2 (15%
+                    GST)</label>
+            </div>
+            <br>
+            <label for="natureOfConsultancy">Nature Of Consultancy:</label>
+            <div id="natureOfConsultancy">
+                <label for="testing"><input type="radio" id="testing" name="consultancyType" value="Testing"
+                        required>Testing</label>
+                <label for="service"><input type="radio" id="service" name="consultancyType" value="Service"
+                        required>Service</label>
+                <label for="consultancy"><input type="radio" id="consultancy" name="consultancyType" value="Consultancy"
+                        required>Consultancy</label>
+            </div>
+
+            <button type="submit">Calculate GST</button>
+        </form>
+
+        <table id="outputTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Industry Name</th>
+                    <th>Amount (INR)</th>
+                    <th>Number of Faculty</th>
+                    <th>GST Amount</th>
+                    <th>Total Amount (Including GST)</th>
+                    <th>College Amount (30%)</th>
+                    <th>Faculty Amount (70%)</th>
+                    <th>Amount per Faculty</th>
+                    <th>Nature of Consultancy</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        document.getElementById('gstForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            var industry = document.getElementById('industry').value;
+            var amount = parseFloat(document.getElementById('amount').value);
+            var employees = parseInt(document.getElementById('employees').value);
+            var serviceType = document.querySelector('input[name="service"]:checked').value;
+            var consultancyType = document.querySelector('input[name="consultancyType"]:checked').value;
+
+            // Calculate GST    
+            var gstPercentage = serviceType === "1" ? 0.1 : 0.15;
+            var gstAmount = amount * gstPercentage;
+            var totalAmount = amount + gstAmount;
+
+            // Calculate college and faculty amounts
+            var collegeAmount = totalAmount * 0.3;
+            var facultyAmount = totalAmount * 0.7;
+            var facultyAmountPerFaculty = facultyAmount / employees;
+
+            // Create output table row
+            var outputTableBody = document.querySelector('#outputTable tbody');
+            outputTableBody.innerHTML = ''; // Clear previous rows
+            var newRow = `<tr>
+            <td>${industry}</td>
+            <td>${amount.toFixed(2)}</td>
+            <td>${employees}</td>
+            <td>${gstAmount.toFixed(2)}</td>
+            <td>${totalAmount.toFixed(2)}</td>
+            <td>${collegeAmount.toFixed(2)}</td>
+            <td>${facultyAmount.toFixed(2)}</td>
+            <td>${facultyAmountPerFaculty.toFixed(2)}</td>
+            <td>${consultancyType}</td>
+        </tr>`;
+            outputTableBody.innerHTML += newRow;
+
+            // Show output table
+            document.getElementById('outputTable').style.display = 'table';
+        });
+    </script>
+
+
+</body>
+
+</html>
