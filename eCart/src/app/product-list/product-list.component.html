@@ -1,0 +1,38 @@
+<!-- src/app/product-list/product-list.component.html -->
+<div class="product-list">
+    <div class="product-card">
+      <img src="speaker.jpeg" alt="Product 1" class="product-image" />
+      <h2>SPEAKER</h2>
+      <p>provide invaluable expertise to elevate sales performance</p>
+      <p>$79</p>
+      <button (click)="addToCart({id: 1, name: 'SPEAKER', price: 79, description: 'Description for Product 1', imageUrl: 'C:\Users\Varunesh.T\Documents\2nd_YEAR\WT\EXP-10\eCart\src\app\speaker.jpeg'})">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="computer.jpeg" alt="Product 2" class="product-image" />
+      <h2>COMPUTER</h2>
+      <p>help them keep track of revenues, costs and their supply chain from a central office</p>
+      <p>$200</p>
+      <button (click)="addToCart({id: 2, name: 'COMPUTER', price: 200, description: 'Description for Product 2', imageUrl: 'https://example.com/image2.jpg'})">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="laptop.jpeg" alt="Product 3" class="product-image" />
+      <h2>LAPTOP</h2>
+      <p> a personal computer that can be easily moved and used in a variety of locations</p>
+      <p>$300</p>
+      <button (click)="addToCart({id: 3, name: 'LAPTOP', price: 300, description: 'Description for Product 3', imageUrl: 'https://example.com/image3.jpg'})">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="hard-disk.jpg" alt="Product 4" class="product-image" />
+      <h2>HARD DISK</h2>
+      <p>flat circular plates made of aluminum or glass and coated with a magnetic material</p>
+      <p>$49</p>
+      <button (click)="addToCart({id: 4, name: 'HARD DISK', price: 49, description: 'Description for Product 4', imageUrl: 'https://example.com/image4.jpg'})">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="penddrive.jpeg" alt="Product 5" class="product-image" />
+      <h2>PENDRIVE</h2>
+      <p>a data storage device that includes flash memory with an integrated USB interface</p>
+      <p>$25</p>
+      <button (click)="addToCart({id: 5, name: 'PENDRIVE', price: 25, description: 'Description for Product 5', imageUrl: 'https://example.com/image5.jpg'})">Add to Cart</button>
+    </div>
+</div>
