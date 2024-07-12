@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .cls1 {
+            border: solid rgb(0, 0, 255);
+            background-color: rgb(0, 0, 255);
+            color: white;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 100px;
+            height: 120px;
+            text-align: center;
+            line-height: 120px;
+            margin-bottom: 20px;
+        }
+        .menu {
+            background-color: #ffc107;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .menu ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .menu ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .menu ul li a:hover {
+            background-color: #ff9800;
+            color: white;
+        }
+        .container {
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .increased-height {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .container-fixed {
+            color: #333;
+            font-weight: bold;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .text-center {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .menu1 {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+        .menu1 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .menu1 ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .menu1 ul li a {
+            text-decoration: none;
+            color: #ffc107;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .menu1 ul li a:hover {
+            background-color: #ffc107;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="cls1">
+        Samsung
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a routerLink="product">Products</a></li>
+            <li><a routerLink="about">About</a></li>
+            <li><a routerLink="contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="increased-height">
+            <div class="container-fixed">
+                <p class="text-center">WORLD'S #1<br>QUALITY<br>SMARTPHONE<br>BRAND</p>
+            </div>
+            <div class="container-fixed">
+                <p class="text-center">10<br>MILLION<br>USERS<br>WORLDWIDE</p>
+            </div>
+            <div class="container-fixed">
+                <p class="text-center">COPYRIGHTS ©<br>2010-2022 SAMSUNG<br>ALL RIGHTS<br>RESERVED</p>
+            </div>
+        </div>
+    </div>
+    <div class="menu1">
+        <ul>
+            <li><a href="https://twitter.com/Samsung">Twitter</a></li>
+            <li><a href="https://www.instagram.com/samsungmobile/">Instagram</a></li>
+            <li><a href="https://www.facebook.com/SamsungMobile/">Facebook</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+
+<router-outlet />
